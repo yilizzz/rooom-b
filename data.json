@@ -1,0 +1,312 @@
+{
+  "users": [
+    {
+      "username": "a",
+      "mark-list": [
+        1,
+        2,
+        6,
+        12,
+        3
+      ],
+      "post-list": [
+        1,
+        2,
+        14,
+        15
+      ]
+    },
+    {
+      "username": "z",
+      "mark-list": [
+        1,
+        2,
+        6,
+        12
+      ],
+      "post-list": [
+        11,
+        12
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "title": "Troyes1",
+      "price": 1000,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.298781896161515,
+        "lng": 4.07368396638871
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t1.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Troyes2",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.29170118600335,
+        "lng": 4.06995033143998
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t2.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Paris1",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "75001",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.858806,
+        "lng": 2.341903
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t3.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Paris2",
+      "price": 1000,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "75002",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.869314,
+        "lng": 2.333105
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Châlons-en-Champagne",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "51000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.958405,
+        "lng": 4.354934
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t5.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Reims",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "51100",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 49.248489,
+        "lng": 4.014452
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t6.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Troyes3",
+      "price": 1000,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.293995,
+        "lng": 4.067855
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t7.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Troyes4",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.29299,
+        "lng": 4.073736
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t8.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Troyes5",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.299512,
+        "lng": 4.071753
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t9.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Troyes6",
+      "price": 1000,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.28351,
+        "lng": 4.078502
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t20.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Troyes7",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.300127,
+        "lng": 4.059955
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t21.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Troyes8",
+      "price": 1500,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "city": "10000",
+      "contact": "0789123456",
+      "address": "1 Avenue Box",
+      "location": {
+        "lat": 48.293374,
+        "lng": 4.079258
+      },
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t22.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t1.jpg",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/t4.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "a",
+      "price": 20,
+      "number": 2,
+      "ares": 56,
+      "floor": 6,
+      "address": "",
+      "city": "10000",
+      "location": {
+        "lat": 48.405616,
+        "lng": 4.077495
+      },
+      "contact": "123",
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698170549363.webp",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698170549719.webp"
+      ]
+    },
+    {
+      "city": "51000",
+      "price": 33,
+      "title": "33",
+      "number": 3,
+      "area": 333,
+      "floor": 3,
+      "address": "1 Rue Thomas Martin",
+      "location": {
+        "lat": 48.9545365,
+        "lng": 4.362650599999999
+      },
+      "contact": "33333",
+      "url": [],
+      "id": 14
+    },
+    {
+      "city": "51000",
+      "price": 44,
+      "title": "44",
+      "number": 44,
+      "area": 44,
+      "floor": 4,
+      "address": "1 Rue Thomas Martin",
+      "location": {
+        "lat": 48.9545365,
+        "lng": 4.362650599999999
+      },
+      "contact": "44",
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698251072778.webp",
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698251073142.webp"
+      ],
+      "id": 15
+    }
+  ]
+}
