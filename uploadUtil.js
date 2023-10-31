@@ -8,7 +8,7 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
 const resizeAndSaveImage = async (req, res, next) => {
-  const data = JSON.parse(req.body.data);
+  console.log("resizeAndSaveImage");
   const files = req.files;
 
   if (!files) return next();
@@ -25,8 +25,8 @@ const resizeAndSaveImage = async (req, res, next) => {
       // Resize image to width, height
       const buffer = await sharp(image.buffer)
         .resize({
-          width: 206,
-          height: 260,
+          width: 800,
+          height: 600,
           fit: sharp.fit.cover,
         })
         .webp({ quality: 50 }) // Use WebP option for output image.

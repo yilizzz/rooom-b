@@ -49,7 +49,7 @@ app.post("/login", (req, res) => {
 // Define logout route
 app.post("/logout", (req, res) => {
   req.session.destroy();
-  res.send("Logged out");
+  res.status(200).send("Logged out");
   console.log("logout");
 });
 
