@@ -13,9 +13,9 @@ const getData = (callback) => {
 const saveData = (jsonData, callback) => {
   fs.writeFile("data.json", JSON.stringify(jsonData, null, 2), (err) => {
     if (err) {
-      callback(err, null); // Call the callback with an error if there is one
+      callback(err, null);
     } else {
-      callback(null, jsonData); // Call the callback with the saved data
+      callback(null, jsonData);
     }
   });
 };
@@ -31,7 +31,7 @@ exports.getAllRooms = (req, res) => {
   });
 };
 
-// Get latest 20 listings
+// Get latest 12 listings
 exports.getLast = (req, res) => {
   fs.readFile("data.json", "utf8", (err, data) => {
     if (err) {
@@ -89,17 +89,14 @@ exports.addOneRoom = (req, res) => {
       `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${element}`
   );
   roomObject.url = completeFileNames;
-
   fs.readFile("data.json", "utf8", (err, data) => {
     if (err) {
       res.status(500).send("Internal Server Error");
       return;
     }
-
     const jsonData = JSON.parse(data);
-
     // Assign new listings a unique ID
-    roomObject.id = jsonData.rooms.length + 1;
+    roomObject.id = Date.now();
     // Add a new item to rooms fields
     jsonData.rooms.push(roomObject);
     // Add the id to the post-list field of the corresponding user
@@ -123,7 +120,6 @@ exports.addOneRoom = (req, res) => {
 exports.ModifyRoom = (req, res) => {
   const fileNames = req.fileNames;
   const roomObject = JSON.parse(req.body.data);
-
   delete roomObject.user;
   // Get filenames of new uploaded files
   const completeFileNames = fileNames.map(
@@ -135,13 +131,11 @@ exports.ModifyRoom = (req, res) => {
   const combinedUrl = [...urlModified, ...completeFileNames];
   roomObject.url = combinedUrl;
 
-  console.log("editObject: " + roomObject);
   fs.readFile("data.json", "utf8", (err, data) => {
     if (err) {
       res.status(500).send("Internal Server Error");
       return;
     }
-
     const jsonData = JSON.parse(data);
 
     const roomToUpdate = jsonData.rooms.find(
@@ -154,7 +148,7 @@ exports.ModifyRoom = (req, res) => {
         }
       }
     }
-    console.log(roomToUpdate);
+
     fs.writeFile("data.json", JSON.stringify(jsonData, null, 2), (err) => {
       if (err) {
         res.status(500).send({ message: "Internal Server Error" });
@@ -164,8 +158,10 @@ exports.ModifyRoom = (req, res) => {
     });
   });
 };
-exports.getMarkList = (req, res) => {
-  const user = req.params.user;
+exports.getList = (req, res) => {
+  const user = req.query.user;
+  const listName = req.query.listName;
+
   getData((err, data) => {
     if (err) {
       res.status(500).json({ error: "Internal Server Error" });
@@ -175,17 +171,17 @@ exports.getMarkList = (req, res) => {
         // Find the user by username
         const foundUser = jsonData.users.find((u) => u.username === user);
         if (foundUser) {
-          // Get this user's "mark-list"
-          const markRooms = [];
-          const markList = foundUser["mark-list"];
-          if (markList && markList.length > 0) {
-            markList.map((id) => {
-              const markRoom = jsonData.rooms.find((r) => r.id == id);
-              markRooms.push(markRoom);
+          // Get this user's certain list
+          const roomList = [];
+          const list = foundUser[listName];
+          if (list && list.length > 0) {
+            list.map((id) => {
+              const room = jsonData.rooms.find((r) => r.id == id);
+              roomList.push(room);
             });
-            res.status(200).json(markRooms);
+            res.status(200).json(roomList);
           } else {
-            res.status(204).json({ error: "Mark record not found" });
+            res.status(204).json({ error: "Record not found" });
           }
         } else {
           res.status(404).json({ error: "User not found" });
@@ -193,40 +189,6 @@ exports.getMarkList = (req, res) => {
       } catch (e) {
         res.status(500).json({ error: "Internal Server Error" });
       }
-    }
-  });
-};
-exports.getPostList = (req, res) => {
-  const user = req.params.user;
-
-  fs.readFile("data.json", "utf-8", (err, data) => {
-    if (err) {
-      res.status(500).send("Internal Server Error");
-      return;
-    }
-    try {
-      // Parse the JSON data
-      const jsonData = JSON.parse(data);
-      // Find the user by username
-      const foundUser = jsonData.users.find((u) => u.username === user);
-      if (foundUser) {
-        // Get this user's "post-list"
-        const postRooms = [];
-        const postList = foundUser["post-list"];
-        if (postList && postList.length > 0) {
-          postList.map((postId) => {
-            const postRoom = jsonData.rooms.find((r) => r.id == postId);
-            postRooms.push(postRoom);
-          });
-          res.status(200).json(postRooms);
-        } else {
-          res.status(204).json({ error: "Post record not found" });
-        }
-      } else {
-        res.status(404).json({ error: "User not found" });
-      }
-    } catch (e) {
-      res.status(500).json({ error: "Internal Server Error" });
     }
   });
 };

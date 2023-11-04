@@ -1,12 +1,15 @@
 {
   "users": [
     {
-      "username": "a",
+      "username": "Puss in Boots",
       "mark-list": [
-        1,
-        2,
-        14
+        10
       ],
+      "post-list": []
+    },
+    {
+      "username": "a",
+      "mark-list": [],
       "post-list": [
         1,
         2,
@@ -17,8 +20,7 @@
         7,
         8,
         9,
-        10,
-        11
+        10
       ]
     },
     {
@@ -27,57 +29,25 @@
         9
       ],
       "post-list": [
+        11,
         12,
         13,
-        14,
-        15,
-        16,
-        17
+        14
       ]
+    },
+    {
+      "username": "b",
+      "mark-list": [],
+      "post-list": []
     }
   ],
   "rooms": [
     {
       "id": 1,
-      "title": "One bedroom on shopping street",
-      "price": 1500,
-      "number": 1,
-      "area": 56,
-      "floor": 6,
-      "city": "10000",
-      "contact": "0789123456",
-      "address": "rue emily zola",
-      "location": {
-        "lat": 48.296296,
-        "lng": 4.0744719
-      },
-      "url": []
-    },
-    {
-      "id": 2,
-      "title": "Princess style bedroom",
-      "price": 1500,
-      "number": 2,
-      "area": 56,
-      "floor": 6,
-      "city": "10000",
-      "contact": "0789123456",
-      "address": "2 Rue du Colonel Driant",
-      "location": {
-        "lat": 48.2950565,
-        "lng": 4.069142
-      },
-      "url": [
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698519790991.webp",
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698519791409.webp"
-      ]
-    },
-    {
-      "id": 3,
       "title": "Forest cabin",
       "price": 1500,
       "number": 2,
-      "area": 56,
+      "area": 67,
       "floor": 1,
       "city": "75001",
       "contact": "0789123456",
@@ -92,7 +62,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 2,
       "title": "Two bedrooms with patio",
       "price": 1000,
       "number": 2,
@@ -111,7 +81,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 3,
       "title": "Third bedroom in Sunflower Garden",
       "price": 1500,
       "number": 2,
@@ -130,7 +100,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 4,
       "title": "Châlons-en-Champagne",
       "price": 1500,
       "number": 2,
@@ -146,7 +116,7 @@
       "url": []
     },
     {
-      "id": 7,
+      "id": 5,
       "title": "Perfect game cat's house",
       "price": 1000,
       "number": 2,
@@ -165,26 +135,7 @@
       ]
     },
     {
-      "id": 8,
-      "title": "For film loving cats",
-      "price": 1500,
-      "number": 2,
-      "area": 56,
-      "floor": 6,
-      "city": "10000",
-      "contact": "0789123456",
-      "address": "1 Cr Jacquin",
-      "location": {
-        "lat": 48.3040898,
-        "lng": 4.080045
-      },
-      "url": [
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698520211867.webp",
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698520212316.webp"
-      ]
-    },
-    {
-      "id": 9,
+      "id": 6,
       "title": "3 bedrooms with no kitchen",
       "price": 1500,
       "number": 2,
@@ -203,7 +154,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 7,
       "title": "The ideal home for meditating cats",
       "price": 1000,
       "number": 2,
@@ -221,45 +172,7 @@
       ]
     },
     {
-      "id": 11,
-      "title": " One bedroom, suitable for single cats",
-      "price": 1500,
-      "number": 2,
-      "area": 56,
-      "floor": 6,
-      "city": "10000",
-      "contact": "0789123456",
-      "address": "23 Rue Brissonnet",
-      "location": {
-        "lat": 48.3014821,
-        "lng": 4.0819792
-      },
-      "url": [
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698520292768.webp"
-      ]
-    },
-    {
-      "id": 12,
-      "title": "Cozy two-bedroom apartment, pets allowed",
-      "price": 20,
-      "number": 2,
-      "area": 66,
-      "floor": 6,
-      "city": "10000",
-      "contact": "0789123456",
-      "address": "Rue Boucherat",
-      "location": {
-        "lat": 48.301,
-        "lng": 4.078
-      },
-      "url": [
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521326330.webp",
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521326786.webp",
-        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698793403503.webp"
-      ]
-    },
-    {
-      "id": 13,
+      "id": 8,
       "title": "A large one-bedroom apartment with a shared kitchen",
       "price": 120,
       "number": 1,
@@ -294,7 +207,7 @@
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521415561.webp",
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521415998.webp"
       ],
-      "id": 14
+      "id": 9
     },
     {
       "city": "51000",
@@ -313,7 +226,7 @@
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521435146.webp",
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521435528.webp"
       ],
-      "id": 15
+      "id": 10
     },
     {
       "city": "10000",
@@ -334,7 +247,7 @@
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521489382.webp",
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521489697.webp"
       ],
-      "id": 16
+      "id": 11
     },
     {
       "city": "93290",
@@ -352,7 +265,43 @@
       "url": [
         "https://rooom-image.s3.eu-west-3.amazonaws.com/1698521564431.webp"
       ],
-      "id": 17
+      "id": 12
+    },
+    {
+      "city": "10000",
+      "price": 11,
+      "title": "Big enough for two cats which is located in the city center with cat grass nearby",
+      "number": 1,
+      "area": 111,
+      "floor": 1,
+      "address": "54 Bd Gambetta, Troyes",
+      "location": {
+        "lat": 48.2983055,
+        "lng": 4.0681992
+      },
+      "contact": "33333",
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698956099682.webp"
+      ],
+      "id": 13
+    },
+    {
+      "city": "10000",
+      "price": 22,
+      "address": "41 Rue Jules Lebocey",
+      "location": {
+        "lat": 48.2983047,
+        "lng": 4.0713484
+      },
+      "contact": "33333",
+      "title": " Fully furnished one bedroom appartment",
+      "number": 1,
+      "area": 2,
+      "floor": 2,
+      "url": [
+        "https://rooom-image.s3.eu-west-3.amazonaws.com/1698957620525.webp"
+      ],
+      "id": 14
     }
   ]
 }

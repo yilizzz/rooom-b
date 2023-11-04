@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const app = express();
-
+const fs = require("fs");
 const bodyParser = require("body-parser");
 const roomRoutes = require("./roomRouter");
 require("dotenv").config();
@@ -33,7 +33,7 @@ app.use(
 
 // Display simulated backend server information
 app.get("/", (req, res) => {
-  res.send("Hello, this is ROOOM server, you will find your ROOM!");
+  res.send("Hello, this is ROOOM server.");
 });
 
 // Define login route
@@ -41,9 +41,47 @@ app.post("/login", (req, res) => {
   // Perform authentication, set user info in the session
   req.session.user = { username: req.body.username };
   res.status(200).send("Logged in");
+  // Read the JSON file
+  fs.readFile("data.json", "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading file:", err);
+      return;
+    }
 
-  console.log(req.session.user);
-  console.log("---login---");
+    // Parse the JSON data
+    const jsonData = JSON.parse(data);
+
+    // Check if the username already exists
+    const isUsernameExists = jsonData.users.some(
+      (user) => user.username == req.body.username
+    );
+    console.log(isUsernameExists);
+    if (!isUsernameExists) {
+      // Create a new user object
+      const newUser = {
+        username: req.body.username,
+        "mark-list": [],
+        "post-list": [],
+      };
+
+      // Add the new user to the 'users' array
+      jsonData.users.push(newUser);
+
+      // Convert the updated data back to JSON format
+      const updatedJsonData = JSON.stringify(jsonData, null, 2);
+
+      // Write the updated JSON data back to the file
+      fs.writeFile("data.json", updatedJsonData, "utf8", (err) => {
+        if (err) {
+          console.error("Error writing file:", err);
+        } else {
+          console.log("User added successfully!");
+        }
+      });
+    }
+    console.log(req.session.user);
+    console.log("---login---");
+  });
 });
 
 // Define logout route
