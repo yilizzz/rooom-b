@@ -1,10 +1,10 @@
 const express = require("express");
 const session = require("express-session");
 const app = express();
-const fs = require("fs");
 const bodyParser = require("body-parser");
 const roomRoutes = require("./roomRouter");
 require("dotenv").config();
+const { setS3File, getS3File } = require("./dataFile");
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -37,25 +37,15 @@ app.get("/", (req, res) => {
 });
 
 // Define login route
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   // Perform authentication, set user info in the session
   req.session.user = { username: req.body.username };
-  res.status(200).send("Logged in");
-  // Read the JSON file
-  fs.readFile("data.json", "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err);
-      return;
-    }
-
-    // Parse the JSON data
-    const jsonData = JSON.parse(data);
-
+  const jsonData = await getS3File();
+  if (jsonData) {
     // Check if the username already exists
     const isUsernameExists = jsonData.users.some(
       (user) => user.username == req.body.username
     );
-    console.log(isUsernameExists);
     if (!isUsernameExists) {
       // Create a new user object
       const newUser = {
@@ -63,25 +53,20 @@ app.post("/login", (req, res) => {
         "mark-list": [],
         "post-list": [],
       };
-
       // Add the new user to the 'users' array
       jsonData.users.push(newUser);
-
-      // Convert the updated data back to JSON format
-      const updatedJsonData = JSON.stringify(jsonData, null, 2);
-
       // Write the updated JSON data back to the file
-      fs.writeFile("data.json", updatedJsonData, "utf8", (err) => {
-        if (err) {
-          console.error("Error writing file:", err);
-        } else {
-          console.log("User added successfully!");
-        }
-      });
+      if (setS3File(jsonData)) {
+        console.log("---New User---", req.session.user);
+        res.status(201).send("User added successfully");
+      } else {
+        res.status(500).send("Update S3 file failed");
+      }
+    } else {
+      res.status(200).send("Login");
+      console.log("---Login---", req.session.user);
     }
-    console.log(req.session.user);
-    console.log("---login---");
-  });
+  }
 });
 
 // Define logout route
@@ -90,7 +75,7 @@ app.post("/logout", (req, res) => {
   res.status(200).send("Logged out");
   console.log("logout");
 });
-
+// Define room route
 app.use("/room", roomRoutes);
 // Start the server
 app.listen(3001, () => {

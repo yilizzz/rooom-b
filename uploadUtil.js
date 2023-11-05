@@ -31,10 +31,8 @@ const resizeAndSaveImage = async (req, res, next) => {
         })
         .webp({ quality: 50 }) // Use WebP option for output image.
         .toBuffer();
-
       // Change image's filename to avoid invalid characters
       const filename = Date.now() + ".webp";
-
       // Generate a presigned URL
       const signedUrlExpireSeconds = 60 * 5;
       const command = new PutObjectCommand({
@@ -45,7 +43,6 @@ const resizeAndSaveImage = async (req, res, next) => {
       const url = await getSignedUrl(s3, command, {
         expiresIn: signedUrlExpireSeconds,
       });
-
       // Upload the resized image to an AWS S3 bucket using the presigned URL
       await axios.put(url, buffer);
       // req.file.filename = filename;
@@ -57,7 +54,6 @@ const resizeAndSaveImage = async (req, res, next) => {
   req.fileNames = fileNames;
   next();
 };
-
 // upload files to the storage, then resize and save them to correct destination
 const uploadAndResizeImage = [upload.array("files"), resizeAndSaveImage];
 module.exports = uploadAndResizeImage;
