@@ -8,7 +8,6 @@ const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
 const resizeAndSaveImage = async (req, res, next) => {
-  console.log("resizeAndSaveImage");
   const files = req.files;
 
   if (!files) return next();
