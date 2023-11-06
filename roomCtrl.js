@@ -216,13 +216,13 @@ exports.deletePost = async (req, res) => {
     const jsonData = await getS3File();
     if (jsonData) {
       // Find the user object with the given username
-      const userObj = data.users.find((u) => u.username === user);
+      const userObj = jsonData.users.find((u) => u.username === user);
       // Remove the post ID from the user's post-list array
       userObj["post-list"] = userObj["post-list"].filter((p) => p !== id);
       // Remove the room object with the given ID from the rooms array
-      data.rooms = data.rooms.filter((r) => r.id !== id);
+      jsonData.rooms = jsonData.rooms.filter((r) => r.id !== id);
       // Write the updated data back to the file
-      if (setS3File(data)) {
+      if (setS3File(jsonData)) {
         res.status(200).send("Update S3 file successfully");
       } else {
         res.status(500).send("Update S3 file failed");
