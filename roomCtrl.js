@@ -138,10 +138,10 @@ exports.getList = async (req, res) => {
           });
           res.status(200).json(roomList);
         } else {
-          res.status(204).json({ error: "Record not found" });
+          res.status(204).json([]);
         }
       } else {
-        res.status(404).json({ error: "User not found" });
+        res.status(404).json([]);
       }
     } else {
       res.status(404).json({ error: "No S3 file" });
